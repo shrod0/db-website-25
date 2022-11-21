@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %} input data {% endblock %}
+
+{% block header %} Add New Data {% endblock %}
+
+{% block body %}
+    <a href="{{ url_for('table_users') }}" class="btn btn-primary">Back Home</a>
+    <div class="card-body">
+        <form action="{{ url_for('add_users') }}" method="POST">
+            <div class="form-group">
+                <label for="email">email:</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">#</div>
+                    </div>
+                    <textarea name="email" id="email" class="form-control" lass="form-control" placeholder="email" required="required" autocomplete="off"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="name">name:</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">#</div>
+                    </div>
+                    <textarea name="name" id="name" class="form-control" lass="form-control" placeholder="name" required="required" autocomplete="off"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="surname">surname:</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">#</div>
+                    </div>
+                    <textarea name="surname" id="surname" class="form-control" lass="form-control" placeholder="surname" required="required" autocomplete="off"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="salary">salary:</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">#</div>
+                    </div>
+                    <input type="text" id="salary" class="form-control" placeholder="salary" name="salary">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="id">phone:</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">#</div>
+                    </div>
+                    <input type="text" id="phone" class="form-control" placeholder="phone" name="phone">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="cname">cname:</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">#</div>
+                    </div>
+                    <textarea name="cname" id="cname" class="form-control" lass="form-control" placeholder="cname" required="cname" autocomplete="off"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success btn-sm" name="submit">Submit</button>
+                <button type="reset" class="btn btn-danger btn-sm">Cancel</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

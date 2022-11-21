@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %} input data {% endblock %}
+
+{% block header %} Add New Data {% endblock %}
+
+{% block body %}
+    <a href="{{ url_for('table_country') }}" class="btn btn-primary">Back Home</a>
+    <div class="card-body">
+        <form action="{{ url_for('add_country') }}" method="POST">
+            <div class="form-group">
+                <label for="cname">cname:</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">#</div>
+                    </div>
+                    <input type="text" id="cname" class="form-control" placeholder="cname" name="cname">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="population">population:</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">#</div>
+                    </div>
+                    <textarea name="population" id="population" class="form-control" lass="form-control" placeholder="population" required="required" autocomplete="off"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success btn-sm" name="submit">Submit</button>
+                <button type="reset" class="btn btn-danger btn-sm">Cancel</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

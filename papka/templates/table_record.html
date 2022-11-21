@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %} List Data {% endblock %}
+
+{% block header %} Table Data {% endblock %}
+
+{% block body %}
+    <div class="btn-group-vertical">
+        <a href="/" class="btn btn-primary" style="margin-bottom: 1.3rem;">Back to tables</a>
+        <a href="{{ url_for('add_record') }}" class="btn btn-primary" style="margin-bottom: 1.3rem;">Add Data</a>
+    </div>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Success!</strong> {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
+        {% endif%}
+    {% endwith %}
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">email</th>
+                <th scope="col">cname</th>
+                <th scope="col">disease_code</th>
+                <th scope="col">total_deaths</th>
+                <th scope="col">total_patients</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in data %}
+                <tr>
+                    <th scope="row">{{ record.index }}</th>
+                    <td>{{ record.email }}</td>
+                    <td>{{ record.cname }}</td>
+                    <td>{{ record.disease_code }}</td>
+                    <td>{{ record.total_deaths }}</td>
+                    <td>{{ record.total_patients }}</td>
+                    <td>
+                        <a href="{{ url_for('update_record', email=record.email) }}" class="btn btn-warning">Edit</a>
+                        <a href="{{ url_for('delete_record', email=record.email) }}" class="btn btn-danger" onclick="return confirm('Are you sure delete this data?')">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
